@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
-{	
+{
 	public float health = 100f;					// The player's health.
 	public float repeatDamagePeriod = 2f;		// How frequently the player can be damaged.
 	public AudioClip[] ouchClips;				// Array of clips to play when the player is damaged.
@@ -20,11 +20,11 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Setting up references.
 		playerControl = GetComponent<PlayerControl>();
-		healthBar = GameObject.Find("HealthBar").GetComponent<SpriteRenderer>();
+		// healthBar = GameObject.Find("HealthBar").GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 
 		// Getting the intial scale of the healthbar (whilst the player has full health).
-		healthScale = healthBar.transform.localScale;
+		// healthScale = healthBar.transform.localScale;
 	}
 
 
@@ -34,14 +34,14 @@ public class PlayerHealth : MonoBehaviour
 		if(col.gameObject.tag == "Enemy")
 		{
 			// ... and if the time exceeds the time of the last hit plus the time between hits...
-			if (Time.time > lastHitTime + repeatDamagePeriod) 
+			if (Time.time > lastHitTime + repeatDamagePeriod)
 			{
 				// ... and if the player still has health...
 				if(health > 0f)
 				{
 					// ... take damage and reset the lastHitTime.
-					TakeDamage(col.transform); 
-					lastHitTime = Time.time; 
+					TakeDamage(col.transform);
+					lastHitTime = Time.time;
 				}
 				// If the player doesn't have health, do some stuff, let him fall into the river to reload the level.
 				else
