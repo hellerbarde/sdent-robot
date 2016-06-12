@@ -19,28 +19,28 @@ public class PlayerController2D : MonoBehaviour
     void Update()
     {
 
-        // _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL) > 0 ?
-        //     1 :
-        //     Input.GetAxis(PC2D.Input.HORIZONTAL) < 0 ? -1 : 0;
+//        _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL) > 0 ?
+//           1 :
+//           Input.GetAxis(PC2D.Input.HORIZONTAL) < 0 ? -1 : 0;
+//
+//        if (Input.GetKey(KeyCode.RightArrow)){
+//            _motor.normalizedXMovement = 1;
+//        }
+//        else if (Input.GetKey(KeyCode.LeftArrow)) {
+//            _motor.normalizedXMovement = -1;
+//        }
+//        else {
+//            _motor.normalizedXMovement = 0;
+//        }
 
-        if (Input.GetKey(KeyCode.RightArrow)){
-            _motor.normalizedXMovement = 1;
+        if (Mathf.Abs(Input.GetAxis(PC2D.Input.HORIZONTAL)) > PC2D.Globals.INPUT_THRESHOLD)
+        {
+            _motor.normalizedXMovement = Input.GetAxis(PC2D.Input.HORIZONTAL);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow)) {
-            _motor.normalizedXMovement = -1;
-        }
-        else {
+        else
+        {
             _motor.normalizedXMovement = 0;
         }
-
-        // if (Mathf.Abs(Input.GetRawAxis(PC2D.Input.HORIZONTAL)) > PC2D.Globals.INPUT_THRESHOLD)
-        // {
-        //     _motor.normalizedXMovement = Input.GetRawAxis(PC2D.Input.HORIZONTAL);
-        // }
-        // else
-        // {
-        //     _motor.normalizedXMovement = 0;
-        // }
 
         // Jump?
         if (Input.GetButtonDown(PC2D.Input.JUMP))
