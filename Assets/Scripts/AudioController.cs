@@ -54,7 +54,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void FireAudioPowerUp() {
-		_audio.PlayOneShot (_victory);
+		_audio.PlayOneShot (_powerUp);
 	}
 
 	public void FireAudioWalk() {

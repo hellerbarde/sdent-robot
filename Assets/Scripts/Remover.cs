@@ -11,22 +11,19 @@ public class Remover : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		Debug.Log ("ontriggerenter2d");
 		// If the player hits the trigger...
 		if(col.gameObject.tag == "Player")
 		{
 			
 			col.gameObject.GetComponent<Animator>().Play("Death");
-			//col.gameObject.PlayAnimation ("Death");
 
-			// ... destroy the player.
+			// ... mark the player to be destroyed.
 			this.toRemove = col.gameObject;
 
 			AudioController _audioController = col.gameObject.GetComponent<AudioController> ();
 			_audioController.FireAudioDeath();
 
 			StartCoroutine("Die");
-
 
 			// ... reload the level.
 			StartCoroutine("ReloadGame");

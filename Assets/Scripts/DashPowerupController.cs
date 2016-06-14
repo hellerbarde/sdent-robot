@@ -14,6 +14,9 @@ public class DashPowerupController: MonoBehaviour
 			col.gameObject.GetComponent<PlatformerMotor2D>().enableDashes = true;
 			col.gameObject.GetComponent<ParticleSystem> ().Play ();
 			gameObject.GetComponent<SpriteRenderer> ().sprite = null;
+
+			col.gameObject.GetComponent<AudioController>().FireAudioPowerUp();
+
 			StartCoroutine("PickUp");
 		}
 

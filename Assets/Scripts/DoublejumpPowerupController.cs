@@ -15,6 +15,8 @@ public class DoublejumpPowerupController: MonoBehaviour
 			col.gameObject.GetComponent<ParticleSystem> ().Play ();
 			gameObject.GetComponent<SpriteRenderer> ().sprite = null;
 
+			col.gameObject.GetComponent<AudioController>().FireAudioPowerUp();
+
 			StartCoroutine("PickUp");
 		}
 
