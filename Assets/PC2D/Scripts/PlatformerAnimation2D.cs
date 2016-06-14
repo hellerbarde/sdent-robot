@@ -98,6 +98,8 @@ namespace PC2D
                     if (_motor.velocity.sqrMagnitude >= 0.1f * 0.1f)
                     {
                         _animator.Play("Walk");
+						_audioController.FireAudioWalk ();
+
                     }
                     else
                     {
