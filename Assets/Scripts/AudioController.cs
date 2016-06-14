@@ -41,7 +41,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void FireAudioDeath() {
-		MuteMusic ();
+//		MuteMusic ();
 		_audio.PlayOneShot (_death, 0.5f);
 	}
 
