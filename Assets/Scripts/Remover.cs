@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Remover : MonoBehaviour
 {
-	//public GameObject splash;
-
+	
+	private GameObject toRemove;
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -24,9 +24,13 @@ public class Remover : MonoBehaviour
 			// ... instantiate the splash where the player falls in.
 			//Instantiate(splash, col.transform.position, transform.rotation);
 //			((SpriteRenderer) GetComponentInChildren<SpriteRenderer>).animation.Play;
+			col.gameObject.GetComponent<Animator>().Play("Death");
+			//col.gameObject.PlayAnimation ("Death");
 			//animation.Play(animDie.name);
 			// ... destroy the player.
-			Destroy (col.gameObject);
+			this.toRemove = col.gameObject;
+			StartCoroutine("Die");
+
 
 			// ... reload the level.
 			StartCoroutine("ReloadGame");
@@ -40,7 +44,17 @@ public class Remover : MonoBehaviour
 //			Destroy (col.gameObject);	
 //		}
 	}
-
+	IEnumerator Die()
+	{
+		toRemove.GetComponent<PlatformerMotor2D>().frozen = true;
+		toRemove.GetComponent<PlatformerMotor2D> ().Die ();
+		//toRemove.GetComponent<Animator>().Play("Death");
+		// ... pause briefly
+		yield return new WaitForSeconds(2);
+		Destroy (toRemove);
+		// ... and then reload the level.
+		//Application.LoadLevel(Application.loadedLevel);
+	}
 	IEnumerator ReloadGame()
 	{			
 		// ... pause briefly

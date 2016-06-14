@@ -352,7 +352,8 @@ public class PlatformerMotor2D : MonoBehaviour
         WallSticking,
         Dashing,
         Frozen,
-        Slipping
+        Slipping,
+		Dying
     }
 
     /// <summary>
@@ -678,6 +679,14 @@ public class PlatformerMotor2D : MonoBehaviour
     {
         _movingPlatformState.platform = null;
     }
+
+	/// <summary>
+	/// Call this to have the motor die.
+	/// </summary>
+	public void Die()
+	{
+		motorState = MotorState.Dying;
+	}
 
     /// <summary>
     /// Call this to have the motor try to dash, once called it will be handled in the FixedUpdate tick.
