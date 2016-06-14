@@ -9,10 +9,14 @@ public class PlayerController2D : MonoBehaviour
 {
     private PlatformerMotor2D _motor;
 
+	AudioController _audioController;
+
+
     // Use this for initialization
     void Start()
     {
         _motor = GetComponent<PlatformerMotor2D>();
+		_audioController = GetComponent<AudioController> (); 
     }
 
     // Update is called once per frame
@@ -46,6 +50,8 @@ public class PlayerController2D : MonoBehaviour
         if (Input.GetButtonDown(PC2D.Input.JUMP))
         {
             _motor.Jump();
+			_audioController.FireAudioJump ();
+
         }
 
         _motor.jumpingHeld = Input.GetButton(PC2D.Input.JUMP);
@@ -62,6 +68,7 @@ public class PlayerController2D : MonoBehaviour
         if (Input.GetButtonDown(PC2D.Input.DASH))
         {
             _motor.Dash();
+			_audioController.FireAudioDash ();
         }
     }
 }
