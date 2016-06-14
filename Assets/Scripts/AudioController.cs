@@ -9,12 +9,10 @@ public class AudioController : MonoBehaviour {
 	public AudioClip _death;
 	public AudioClip _jump;
 	public AudioClip _land;
-	public AudioClip _fall;
-	public AudioClip _cling;
-//	public AudioClip _oncorner;
-//	public AudioClip _slip;
 	public AudioClip _dash;
 	public AudioClip _walk;
+	public AudioClip _powerUp;
+	public AudioClip _victory;
 
 	AudioSource _audio;
 
@@ -29,6 +27,11 @@ public class AudioController : MonoBehaviour {
 		
 	}
 
+	private void MuteMusic() {
+		AudioSource music = transform.Find ("music").GetComponent<AudioSource>();
+		music.mute = true;
+	}
+
 	public void FireAudioJump() {
 		_audio.PlayOneShot (_jump);
 	}
@@ -38,11 +41,31 @@ public class AudioController : MonoBehaviour {
 	}
 
 	public void FireAudioDeath() {
-		_audio.PlayOneShot (_death, 0.7f);
+//		MuteMusic ();
+		_audio.PlayOneShot (_death, 0.5f);
 	}
 
 	public void FireAudioLanding() {
 		_audio.PlayOneShot (_land);
 	}
 
+	public void FireAudioVictory() {
+		_audio.PlayOneShot (_victory);
+	}
+
+	public void FireAudioPowerUp() {
+		_audio.PlayOneShot (_victory);
+	}
+
+	public void FireAudioWalk() {
+		if (!_audio.isPlaying) {
+			_audio.PlayOneShot (_walk, 0.5f);
+		}
+
+	}
+
+
+
+
+		
 }
