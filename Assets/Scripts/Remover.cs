@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Remover : MonoBehaviour
 {
-	
+	AudioController audioController;
+
 	private GameObject toRemove;
+
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -29,6 +31,10 @@ public class Remover : MonoBehaviour
 			//animation.Play(animDie.name);
 			// ... destroy the player.
 			this.toRemove = col.gameObject;
+
+			AudioController _audioController = col.gameObject.GetComponent<AudioController> ();
+			_audioController.FireAudioDeath();
+
 			StartCoroutine("Die");
 
 

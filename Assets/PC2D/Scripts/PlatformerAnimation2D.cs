@@ -18,6 +18,9 @@ namespace PC2D
         private bool _isJumping;
         private bool _currentFacingLeft;
 
+		AudioController _audioController;
+	
+
         // Use this for initialization
         void Start()
         {
@@ -26,9 +29,12 @@ namespace PC2D
             _animator.Play("Idle");
 
             _motor.onJump += SetCurrentFacingLeft;
+			_audioController = GetComponent<AudioController> ();
+	
+
         }
 
-        // Update is called once per frame
+        // Update is called once per framen
         void Update()
         {
 			if (_motor.motorState == PlatformerMotor2D.MotorState.Dying) {
@@ -56,6 +62,11 @@ namespace PC2D
             }
             else
             {
+				if (_isJumping) {
+					_audioController.FireAudioLanding ();
+
+				}
+
                 _isJumping = false;
                 visualChild.transform.rotation = Quaternion.identity;
 
@@ -121,5 +132,6 @@ namespace PC2D
         {
             _currentFacingLeft = _motor.facingLeft;
         }
+
     }
 }
