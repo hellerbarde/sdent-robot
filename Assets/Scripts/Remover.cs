@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Remover : MonoBehaviour
@@ -14,21 +15,10 @@ public class Remover : MonoBehaviour
 		// If the player hits the trigger...
 		if(col.gameObject.tag == "Player")
 		{
-			// .. stop the camera tracking the player
-			//GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>().enabled = false;
-
-			// .. stop the Health Bar following the player
-//			if(GameObject.FindGameObjectWithTag("HealthBar").activeSelf)
-//			{
-//				GameObject.FindGameObjectWithTag("HealthBar").SetActive(false);
-//			}
-
-			// ... instantiate the splash where the player falls in.
-			//Instantiate(splash, col.transform.position, transform.rotation);
-//			((SpriteRenderer) GetComponentInChildren<SpriteRenderer>).animation.Play;
+			
 			col.gameObject.GetComponent<Animator>().Play("Death");
 			//col.gameObject.PlayAnimation ("Death");
-			//animation.Play(animDie.name);
+
 			// ... destroy the player.
 			this.toRemove = col.gameObject;
 
@@ -41,14 +31,6 @@ public class Remover : MonoBehaviour
 			// ... reload the level.
 			StartCoroutine("ReloadGame");
 		}
-//		else
-//		{
-//			// ... instantiate the splash where the enemy falls in.
-//			Instantiate(splash, col.transform.position, transform.rotation);
-//
-//			// Destroy the enemy.
-//			Destroy (col.gameObject);	
-//		}
 	}
 	IEnumerator Die()
 	{
@@ -66,6 +48,7 @@ public class Remover : MonoBehaviour
 		// ... pause briefly
 		yield return new WaitForSeconds(2);
 		// ... and then reload the level.
-		Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		//Application.LoadLevel(Application.loadedLevel);
 	}
 }

@@ -31,9 +31,6 @@ public class Titlescreen : MonoBehaviour
 
 	void Update()
 	{
-		
-
-		// Start the game on Jump or Fire
 		if (Input.GetButtonDown ("Jump")
 	    || Input.GetButtonDown ("Fire1")
 	    || Input.GetButtonDown ("Cancel")) {
@@ -41,6 +38,4 @@ public class Titlescreen : MonoBehaviour
 			SceneManager.LoadScene("Level");
 		}
 	}
-
-
 }

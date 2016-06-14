@@ -1,9 +1,8 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public class DashPickup : MonoBehaviour
 {
-	//public float healthBonus;				// How much health the crate gives the player.
 	public AudioClip collect;				// The sound of the crate being collected.
 
 	private PickupSpawner pickupSpawner;	// Reference to the pickup spawner.
