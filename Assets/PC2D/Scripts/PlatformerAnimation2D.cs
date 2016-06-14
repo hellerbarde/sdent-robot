@@ -59,7 +59,8 @@ namespace PC2D
                 if (_motor.motorState == PlatformerMotor2D.MotorState.Falling ||
                                  _motor.motorState == PlatformerMotor2D.MotorState.FallingFast)
                 {
-                    _animator.Play("Fall");
+                    _animator.Play("Death");
+					//_animator.Play("Fall");
                 }
                 else if (_motor.motorState == PlatformerMotor2D.MotorState.WallSliding ||
                          _motor.motorState == PlatformerMotor2D.MotorState.WallSticking)

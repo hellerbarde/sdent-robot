@@ -367,7 +367,8 @@ public class PlatformerMotor2D : MonoBehaviour
         RightWall = 0x4,
         Ceiling = 0x8,
         SlopeLeft = 0x10,
-        SlopeRight = 0x20
+        SlopeRight = 0x20,
+		Hazard = 0x40
     }
 
     /// <summary>
