@@ -194,12 +194,12 @@ MonoBehaviour:
     m_Bits: 0
   additionalRaycastsPerSide: 0
   groundSpeed: 10
-  timeToGroundSpeed: 0.3
+  timeToGroundSpeed: 0.4
   groundStopDistance: 0.3
   airSpeed: 8
   changeDirectionInAir: 1
-  timeToAirSpeed: 0.1
-  airStopDistance: 1
+  timeToAirSpeed: 0.4
+  airStopDistance: 0.4
   fallSpeed: 16
   gravityMultiplier: 1.5
   fastFallSpeed: 16
@@ -232,7 +232,7 @@ MonoBehaviour:
   ignoreMovementAfterJump: 0.2
   wallInteractionCooldown: 0.1
   wallInteractionThreshold: 0.75
-  enableDashes: 1
+  enableDashes: 0
   dashDistance: 6
   dashDuration: 0.5
   dashCooldown: 1

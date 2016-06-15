@@ -35,7 +35,7 @@ public class Titlescreen : MonoBehaviour
 	    || Input.GetButtonDown ("Fire1")
 	    || Input.GetButtonDown ("Cancel")) {
 
-			SceneManager.LoadScene("Level");
+			SceneManager.LoadScene("Tutorial");
 		}
 	}
 }
